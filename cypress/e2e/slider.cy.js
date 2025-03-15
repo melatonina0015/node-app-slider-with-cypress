@@ -16,3 +16,14 @@ describe('Swiper Gallery Test', function () {
     cy.get('.swiper-slide-active').should('contain', 'Paris');
   });
 });
+
+describe('Swiper Gallery Test', function () {
+  it('Checks if if User is able to navigate using keyboard', function () {
+    cy.visit('http://localhost:3000');
+    cy.get('.swiper-slide-active').should('contain', 'Rome');
+    cy.get('.swiper-slide-active').should('contain', 'Italy');
+    cy.document().trigger('keydown', { keyCode: 39 });
+    cy.get('.swiper-slide-active').should('contain', 'London');
+    cy.get('.swiper-slide-active').should('contain', 'United Kingdom');
+  });
+});
